@@ -1,4 +1,4 @@
-rule gozi_ursnif_1_PACKED
+rule gozi_ursnif_PACKED
 {
 meta:
 description = "Detects Gozi/Ursnif"
@@ -6,59 +6,42 @@ MITRE = "ID: S0386, Domain: Enterprise tactic: T1005,T1007,T1012,T1027,T1036,T10
 author = "Yaz"
 date = "2019-12-10"
 Hash = "891e049a76d40d402f822d5049ef0c84c4ec86cd03152bc2c050748bb69d7dac"
-strings:
-$str_1 = "LnfjionJHijejLKok03ro0jfdskkLljf.pdb"
-$str_2 = "ole32.dll"
-$str_3 = "snow %d  Order %srec"
-$str_4 = "InventWord.pdb"
-$str_5 = "xpxxxx"
-$bn_1 = {55 89 E5 56 ?? ?? 83 E4 F8 81 EC ?? 00 00 00 ?? 84 24 C4 00 00 00 ?? ?? ?? ?? ??}
-   //of_1C60 code
-$bn_2 = {83 3D ?? ?? 00 01 00 B8 ?? ?? 00 01 74 0D 8B 10 3B D1 74 0B 8B C2 83 38 00 75 F3 39 08 75 04 8B 09 89 08 C3}
- //of_179C code
-$bn_3 = {54 83 04 24 04 55  89 2D ?? ?? 00 01 53 89 1D ?? ?? 00 01 E8 ?? FB FF FF C3}
-//of_14E0 code
-$bn_4 = {8B FF 55 8B EC 8B 45 08 8A 08 40 84 C9 75 F9 2B 45 08 48 5D C2 04 00}
-//of_16F0 code
-$bn_5 = {59 5E 89 83 BB 14 42 00  89 C7 F3 A4 8B B3 C7 14 42 00 8D BB EF 14 42 00  29 F7 01 F8 FF E0}
-//unpacking routine
-$bn_6 = {8B 7C 24 30 0F B6 F1 8B C6 99 89 44 24 38 89 54 24 3C 3B D5 0F 87 BB 00 00 00}
-//more unpacking
-$bn_7 = {FF 93 D7 14 42 00}
-//more unpacking
-$pe = {E8 69 46 00 00 E9 89 FE FF FF 8B FF 55 8B EC 8B 55}
-condition:
-1 of ($st*) and 3 of ($bn*) or $pe
-}
-
-rule gozi_ursnif_2_packed
-{
-meta:
-description = "Detects Gozi/Ursnif"
-author = "Yaz"
-date = "2020-1-20"
-MITRE = "ID: S0386, Domain: Enterprise tactic: T1005,T1007,T1012,T1027,T1036,T1047,T1050,T1055,T1057,T1060,T1064,T1071,T1074,T1080,T1082,T1086,T1090,T1091,T1093,T1094,T1105,T1106,T1107,T1112,T1113,T1132,T1140,T1143,T1175,T1179,T1185,T1188,T1483,T1497 "
 Hash = "232c8d4a53620fa6d5c296eebc014ea0cee78e54f9ac5707eefa08cf2bc29891"
 strings:
-$header = {4D 5A}
-$str_1 = "xpxxxx"  fullword nocase wide ascii
-$str_2 = "TLOSS"  fullword nocase wide ascii
-$str_3 = "SING"  fullword nocase wide ascii
-$str_4 = "DOMAIN"  fullword nocase wide ascii
-$str_5 = "R6034"  fullword nocase wide ascii
-$bn_1 = {8B 3D 88 51 47 00 66 C1  FE 10 66 C1 E6 10 03 CE 8B DF C0 E9 05 C0 E1 05  93 8B 5D C4 53 FF D0}
-   //of_00406761 call before jump to unpacked section
-$bn_2 = {83 BD ?? ?? FF FF 03 ?? ?? }
- //of_00402C1C  jump table
-$bn_3 = {50 E8 ?? ?? FF FF C7 04 24 ?? ?? 4? 00 57 A3 ?? ?? ?? 00 FF D6 50 E8}
-//of_0040DBEB fingerprint os
-$bn_4 = {8B FF 56 B8 ?? ?? ?? 00 BE ?? ?? ?? 00 57 8B F8 3B C6 73 0F}
-//of_
-//$bn_5 = 
+$pdb_1 = "LnfjionJHijejLKok03ro0jfdskkLljf.pdb"
+$pdb_2 =  "InventWord.pdb"
+$str_1 =  "axppwpp"
+$str_2 = "ole32.dll"
+$str_3 = "snow %d  Order %srec"
+$str_4 = "@superWinner@0"
+$str_5 = "xpxxxx"
+$str_6 = "TLOSS"  fullword nocase wide ascii
+$str_7 = "SING"  fullword nocase wide ascii
+$str_8 = "DOMAIN"  fullword nocase wide ascii
+$str_9 = "R6034"  fullword nocase wide ascii
+$bn_1 = {55 89 E5 56 ?? ?? 83 E4 F8 81 EC ?? 00 00 00 ?? 84 24 C4 00 00 00 ?? ?? ?? ?? ??}
+   //of_1001C60  code 891e_exe
+$bn_2 = {83 3D ?? ?? 00 01 00 B8 ?? ?? 00 01 74 0D 8B 10 3B D1 74 0B 8B C2 83 38 00 75 F3 39 08 75 04 8B 09 89 08 C3}
+ //of_100179C code 891e_exe
+$bn_3 = {54 83 04 24 04 55  89 2D ?? ?? 00 01 53 89 1D ?? ?? 00 01 E8 ?? FB FF FF C3}
+//of_10014E0 code 891e_exe
+$bn_4 = {8B FF 55 8B EC 8B 45 08 8A 08 40 84 C9 75 F9 2B 45 08 48 5D C2 04 00}
+//of_11006F0 code 891e_exe
+$bn_5 = {8B 7C 24 30 0F B6 F1 8B C6 99 89 44 24 38 89 54 24 3C 3B D5 0F 87 BB 00 00 00}
+//more unpacking 891e_exe
+//can't find this offset but it hits
+$bn_6 = {8B 3D 88 51 47 00 66 C1 FE 10 66 C1 E6 10 03 CE 8B DF C0 E9 05 C0 E1 05 93 8B 5D C4 53 FF D0}
+   //of_00406761 call before jump to unpacked section 232_exe
+$bn_7 = {83 BD ?? ?? FF FF 03 ?? ?? }
+ //of_00402C1C  jump table 232_exe
+$bn_8 = {50 E8 ?? ?? FF FF C7 04 24 ?? ?? 4? 00 57 A3 ?? ?? ?? 00 FF D6 50 E8}
+//of_0040DBEB fingerprint os 232_exe
+$bn_9 = {8B FF 56 B8 ?? ?? ?? 00 BE ?? ?? ?? 00 57 8B F8 3B C6 73 0F}
+// off_00409C41 232_exe
+$pe = {E8 69 46 00 00 E9 89 FE FF FF 8B FF 55 8B EC 8B 55}
 condition:
-$header at 0 and 2 of ($st*) and 2 of ($bn*)
+1 of ($pdb*) or 3 of ($st*) and 3 of ($bn*) or $pe
 }
-
 
 rule gozi_ursnif_1_unpacked
 {
@@ -94,7 +77,7 @@ $str_23 = "321.txt"
 $bn_1 = {7B 00 25 00 30 00 38 00 58 00 2D 00 25 00 30 00 34 00 58 00 2D 00 25 00 30 00 34 00 58 00 2D 00 25 00 30 00 34 00 58 00 2D 00 25 00 30 00 38 00 58 00 25 00 30 00 34 00 58 00 7D}
 //string
 $bn_2 = {68 74 74 70 73 3A 2F 2F}
-//string https://
+//string
 $bn_3 = {5C 00 70 00 69 00 70 00 65 00 5C}
 //string
 $bn_4 = {38 00 35 00 37 00 36 00 62 00 30 00 64 00 30}
