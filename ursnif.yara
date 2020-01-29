@@ -94,6 +94,8 @@ $bn_9 = {72 00 75 00 6E 00 61 00 73 00 00 00 63 00 6D 00 64}
 //string
 $bn_10 = {53 68 80 00 00 00 6A 03 53 [1-8] FF}
 //offset_004016AE create file
+$bn_11 = {68 [1-4] 00 [1-2] 56}
+//offset_00402113 cmd line arg
 condition:
 9 of ($st*) and 3 of ($bn*)
 }
