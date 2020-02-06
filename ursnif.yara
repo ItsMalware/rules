@@ -10,6 +10,7 @@ Hash = "232c8d4a53620fa6d5c296eebc014ea0cee78e54f9ac5707eefa08cf2bc29891"
 strings:
 $pdb_1 = "LnfjionJHijejLKok03ro0jfdskkLljf.pdb" fullword nocase wide ascii
 $pdb_2 =  "InventWord.pdb" fullword nocase wide ascii
+$pbd_3 ="golead.pdb"
 $str_1 =  "axppwpp" fullword nocase wide ascii
 $str_2 = "ole32.dll" fullword nocase wide ascii
 $str_3 = "snow %d  Order %srec" nocase wide ascii
@@ -18,7 +19,7 @@ $str_5 = "xpxxxx" fullword nocase wide ascii
 $str_6 = "TLOSS"  fullword nocase wide ascii
 $str_7 = "SING"  fullword nocase wide ascii
 $str_8 = "DOMAIN"  fullword nocase wide ascii
-$str_9 = "R6034"  fullword nocase wide ascii
+$str_9 = "Shell_TrayWnd"  fullword nocase wide ascii
 $bn_1 = {55 89 E5 56 ?? ?? 83 E4 F8 81 EC ?? 00 00 00 ?? 84 24 C4 00 00 00 ?? ?? ?? ?? ??}
    //of_1001C60  code 891e_exe
 $bn_2 = {83 3D ?? ?? 00 01 00 B8 ?? ?? 00 01 74 0D 8B 10 3B D1 74 0B 8B C2 83 38 00 75 F3 39 08 75 04 8B 09 89 08 C3}
