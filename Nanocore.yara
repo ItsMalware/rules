@@ -4,7 +4,7 @@ meta:
 date = "2020-02-12"
 author = "yaz"
 names = "NanoCore RAT"
-sample = "a0d8ac1e2928e82888df559992db2b8056d32dc6e2ce6ddb1e3ede360c8859a5"
+sample = "2f5e9944447519b5eeaeb6ec50c20703896977317b9247b9f00c76c71af362ba"
 MITRE = "T1123,T1059,T1089,T1056,T1112,T1027,T1060,T1105,T1064,T1032,T1016,T1065,T1125"
 Groups = "SilverTerrier, gorgon group, apt 33, group 5"
 strings:
