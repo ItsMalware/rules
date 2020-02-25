@@ -123,22 +123,21 @@ sample = "1f371c8b5a90aa9296a2970cfe84121378ddb83313e87e8288e1db18916d3c1d"
 MITRE = "T1123,T1059,T1089,T1056,T1112,T1027,T1060,T1105,T1064,T1032,T1016,T1065,T1125"
 Groups = "SilverTerrier, gorgon group, apt 33, group 5"
 strings:
-$str_1 = "mYMQHdorwIIC"
-$str_2= "cmd.exe"
-$str_3  = "HoNaNttjyHxpJTCy.river.exe"
-$str_4  = "UserProfile"
-$str_5  = "powershell"
-$str_6 = "URL=file:///"
-$str_7  = "<Module>"
-$str_8 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"
-$str_9 = "DeleteFile"
-$str_10 = "startURL"
-$str_11 = "[InternetShortcut]"
-$cmd1  = "/C choice /C Y /N /D Y /T 3 & Del \""
-$cmd2 = " /MO 1 /tr "
-$cmd3 = "/query"
-$cmd4 = "/create /sc MINUTE /tn"
-
+$str_1 = "mYMQHdorwIIC" nocase wide ascii
+$str_2= "cmd.exe" nocase wide ascii
+$str_3  = "HoNaNttjyHxpJTCy.river.exe" nocase wide ascii
+$str_4  = "UserProfile" nocase wide ascii
+$str_5  = "powershell" nocase wide ascii
+$str_6 = "URL=file:///" nocase wide ascii
+$str_7  = "<Module>" nocase wide ascii
+$str_8 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run" wide
+$str_9 = "DeleteFile"  nocase wide ascii
+$str_10 = "startURL"  nocase wide ascii
+$str_11 = "[InternetShortcut]" wide
+$cmd1  = "/C choice /C Y /N /D Y /T 3 & Del \"" wide
+$cmd2 = " /MO 1 /tr "  wide
+$cmd3 = "/query" wide
+$cmd4 = "/create /sc MINUTE /tn" wide
 
 condition:  
 9 of ($str*) and 2 of ($cmd*)
