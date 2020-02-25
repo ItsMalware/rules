@@ -18,10 +18,15 @@ $str_7  = "LogClientMessage"
 $str_8 = "|ClientHost"
 $str_9 = "get_Connected"
 $str_10 = "#=q"
+$str_11 = "Connecting to {0}:{1}.." wide
+$cmd1 = "/create /f /tn \"{0}\" /xml \"{1}\"" wide
+$cmd2 = "/run /tn \"{0}\"" wide
+$cmd3 = "delete /f /tn \"{0}\"" wide
 $key = {43 6f 24 cb 95 30 38 39}
 
 condition:  
-(filesize < 4MB) and (7 of them)
+7 of ($str*) or 3 of ($cmd*) or $key
+//(filesize < 4MB) and (7 of them)
 }
 
 rule nanocore_unpacked_surveillance_mod
@@ -77,4 +82,64 @@ $str_13 = "NanoCore"
 
 condition:  
 10 of ($str*)
+}
+
+
+rule nanocore_unpacked_AdderallProtector
+{
+meta:
+date = "2020-02-12"
+author = "yaz"
+names = "NanoCore RAT client plugin"
+sample = "62ef08a5c74414efa2918b4e43450cae5c2e111ca1f9aa4071be1209b1c64307"
+MITRE = "T1123,T1059,T1089,T1056,T1112,T1027,T1060,T1105,T1064,T1032,T1016,T1065,T1125"
+Groups = "SilverTerrier, gorgon group, apt 33, group 5"
+strings:
+$str_1 = "AdderallProtector\\c__DisplayClass186_0.pdb"
+$str_2= "DebuggableAttribute"
+$str_3  = "DebuggingModes"
+$str_4  = "get_EntryPoint"
+$str_5  = "c__DisplayClass186_0"
+$str_6 = "kernel32.dll"
+$str_7  = "BlockCopy"
+$str_8 = "Assembly"
+$str_9 = "GetBytes"
+$str_10 = "System.Runtime.CompilerServices"
+$name  = "AdderallProtector"
+
+condition:  
+9 of ($str*) and $name
+}
+
+
+
+rule nanocore_unpacked_rivermod
+{
+meta:
+date = "2020-02-12"
+author = "yaz"
+names = "NanoCore RAT client plugin"
+sample = "1f371c8b5a90aa9296a2970cfe84121378ddb83313e87e8288e1db18916d3c1d"
+MITRE = "T1123,T1059,T1089,T1056,T1112,T1027,T1060,T1105,T1064,T1032,T1016,T1065,T1125"
+Groups = "SilverTerrier, gorgon group, apt 33, group 5"
+strings:
+$str_1 = "mYMQHdorwIIC"
+$str_2= "cmd.exe"
+$str_3  = "HoNaNttjyHxpJTCy.river.exe"
+$str_4  = "UserProfile"
+$str_5  = "powershell"
+$str_6 = "URL=file:///"
+$str_7  = "<Module>"
+$str_8 = "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run"
+$str_9 = "DeleteFile"
+$str_10 = "startURL"
+$str_11 = "[InternetShortcut]"
+$cmd1  = "/C choice /C Y /N /D Y /T 3 & Del \""
+$cmd2 = " /MO 1 /tr "
+$cmd3 = "/query"
+$cmd4 = "/create /sc MINUTE /tn"
+
+
+condition:  
+9 of ($str*) and 2 of ($cmd*)
 }
