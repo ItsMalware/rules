@@ -35,6 +35,6 @@ $cmd2 = "del %%0" wide
 $cmd3 = "%s:%u" wide
 $cmd4 = ":repeat" wide
 
-condition:  
-7 of ($str*) or 3 of ($cmd*) and 4 of ($trgt*)
+condition: 
+7 of ($str*) and 4 of ($trgt*)or 3 of ($cmd*) and 4 of ($trgt*)
 }
