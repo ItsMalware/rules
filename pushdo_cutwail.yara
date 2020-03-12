@@ -16,6 +16,9 @@ $str_5 = "http://%s/" nocase wide ascii
 $str_6 = "Accept-Encoding: gzip, deflate" nocase wide ascii
 $str_7 = "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1; SV1)" nocase wide ascii
 $str_8 = "Accept-Language: en-us" nocase wide ascii
+$str_9 = "\\system32\\svchost.exe" nocase wide ascii
+$str_10 = "Accept: */*" nocase wide ascii
+$str_11 = "zxtsrqpnmlkgfdcb" nocase wide ascii
 $trgt1 = "Win2K" nocase wide ascii
 $trgt2 = "WinXP" nocase wide ascii
 $trgt3  = "WinXP64" nocase wide ascii
@@ -30,7 +33,8 @@ $trgt11 = "UndefinedOS" nocase wide ascii
 $cmd1 = "if exist %s goto :repeat" wide
 $cmd2 = "del %%0" wide
 $cmd3 = "%s:%u" wide
+$cmd4 = ":repeat" wide
 
 condition:  
-8 of ($str*) or 3 of ($cmd*) and 4 of ($trgt*)
+7 of ($str*) or 3 of ($cmd*) and 4 of ($trgt*)
 }
