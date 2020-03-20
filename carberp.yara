@@ -44,5 +44,5 @@ $tag_4 = {6F 73 31 36 00 00 00 00 69 73 31 36 20 69 74}
 $tag_5 = {4b 38 44 46 61 47 59 55 73 38 33 4b 46 30 35 54}
 //string
 condition:
-10 of ($string*) and 1 of ($tag*)
+uint16(0) == 0x5a4d and 10 of ($string*) and 1 of ($tag*)
 }
