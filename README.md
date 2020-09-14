@@ -1,3 +1,3 @@
 # rules
-place to put rules I'm working on
-many changes may happen to one rule while I work on it.
+Place to put rules I'm working on.
+Many changes may happen to one rule while I work on it.
